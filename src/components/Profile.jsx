@@ -7,9 +7,9 @@ class Profile extends Component {
         <div className='row'>
           <div className='jumbotron col-lg-4 offset-lg-4'>
             <h3 className='text-center'>User Profile</h3>
-            <ul class="list-group">
-              <li class="list-group-item">Name : name</li>
-              <li class="list-group-item">Email : email</li>
+            <ul className="list-group">
+              <li className="list-group-item">Name : name</li>
+              <li className="list-group-item">Email : email</li>
             </ul>
           </div>
         </div>

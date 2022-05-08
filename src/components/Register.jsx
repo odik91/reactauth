@@ -10,20 +10,20 @@ class Register extends Component {
             <h3 className='text-center'>Register an Account</h3>
             <form>
               <div className="form-group">
-                <label for="exampleInputEmail1">Username</label>
+                <label htmlFor="exampleInputEmail1">Username</label>
                 <input type="text" className="form-control" />
               </div>
               <div className="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label htmlFor="exampleInputEmail1">Email address</label>
                 <input type="email" className="form-control" />
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label htmlFor="exampleInputPassword1">Password</label>
                 <input type="password" className="form-control" />
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1">Password Confirmation</label>
+                <label htmlFor="exampleInputPassword1">Password Confirmation</label>
                 <input type="password" className="form-control" />
               </div>
               <button type="submit" className="btn btn-primary btn-block mb-2">Register</button>

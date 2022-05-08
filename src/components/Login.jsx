@@ -1,22 +1,45 @@
+import axios from 'axios';
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class Login extends Component {
+  state = {
+    email: '',
+    pasword: '',
+    message: '',
+  }
+
+  //login form
+  formSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    axios.post('/login', data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   render() {
     return (
       <div className='mt-4'>
         <div className='row'>
           <div className='jumbotron col-lg-4 offset-lg-4'>
             <h3 className='text-center'>Login Account</h3>
-            <form>
+            <form onSubmit={this.formSubmit}>
               <div className="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                <label htmlFor="exampleInputEmail1">Email address</label>
+                <input type="email" className="form-control" name='email' required onChange={(e) => { this.setState({ email: e.target.value }) }} />
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" />
+                <label htmlFor="exampleInputPassword1">Password</label>
+                <input type="password" className="form-control" name='password' required onChange={(e) => { this.setState({ password: e.target.value }) }} />
               </div>
               <button type="submit" className="btn btn-primary btn-block mb-2">Login</button>
               <span>
