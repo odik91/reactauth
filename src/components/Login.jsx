@@ -17,12 +17,12 @@ class Login extends Component {
       password: this.state.password
     }
     axios.post('/login', data)
-      .then((response) => {
+      .then(function (response) {
         console.log(response);
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error);
-      })
+      });
   }
 
   render() {
