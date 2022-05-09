@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 class Login extends Component {
   state = {
     email: '',
     pasword: '',
     message: '',
+    loggedIn: false
   }
 
   //login form
@@ -17,17 +18,26 @@ class Login extends Component {
       password: this.state.password
     }
     axios.post('/login', data)
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        localStorage.setItem('token', response.data.token)
+        this.setState({
+          loggedIn: true
+        })
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }
 
   render() {
+    // After login redirect to profile page
+    if (this.state.loggedIn === true) {
+      return <Navigate to={'/profile'} />
+    }
+
     return (
       <div className='mt-4'>
+        <h1>{this.state.loggedIn}</h1>
         <div className='row'>
           <div className='jumbotron col-lg-4 offset-lg-4'>
             <h3 className='text-center'>Login Account</h3>

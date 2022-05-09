@@ -12,6 +12,10 @@ import Forget from '../components/Forget'
 import Profile from '../components/Profile'
 
 class Header extends Component {
+  state = {
+    user: {},
+  }
+
   render() {
     return (
       <Router>
