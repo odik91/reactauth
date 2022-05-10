@@ -10,10 +10,26 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 import Forget from '../components/Forget'
 import Profile from '../components/Profile'
+import axios from 'axios';
 
 class Header extends Component {
   state = {
     user: {},
+  }
+
+  componentDidMount() {
+    // login user data
+    axios.get('/user')
+      .then((response) => {
+        this.setUser(response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  setUser = user => {
+    this.setState({ user: user })
   }
 
   render() {
