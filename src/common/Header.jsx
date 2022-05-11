@@ -28,7 +28,7 @@ class Header extends Component {
       });
   }
 
-  setUser = user => {
+  setUser = (user) => {
     this.setState({ user: user })
   }
 
@@ -36,13 +36,13 @@ class Header extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          <Nav user={this.state.user} setUser={this.setUser} />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forget" element={<Forget />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile user={this.state.user} />} />
           </Routes>
         </div>
       </Router>
