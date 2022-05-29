@@ -10,7 +10,8 @@ import Login from '../components/Login'
 import Register from '../components/Register'
 import Forget from '../components/Forget'
 import Profile from '../components/Profile'
-import axios from 'axios';
+import Reset from '../components/Reset'
+import axios from 'axios'
 
 class Header extends Component {
   state = {
@@ -42,6 +43,7 @@ class Header extends Component {
             <Route path="/login" element={<Login user={this.state.user} setUser={this.setUser} />} />
             <Route path="/register" element={<Register user={this.state.user} setUser={this.setUser} />} />
             <Route path="/forget" element={<Forget />} />
+            <Route path="/reset/:id" element={<Reset />} />
             <Route path="/profile" element={<Profile user={this.state.user} />} />
           </Routes>
         </div>

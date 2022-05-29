@@ -34,7 +34,7 @@ class Register extends Component {
   }
 
   render() {
-    if (this.state.loggedIn === true) {
+    if (this.state.loggedIn === true || localStorage.getItem('token')) {
       return <Navigate to={'/profile'} />
     }
 
